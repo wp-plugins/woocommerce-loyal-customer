@@ -14,6 +14,20 @@ Woo Commerce Loyal Customer provides wp-admin a way to view the total number of 
 Tested on Word Press 3.9.1 with Woocommerce 2.1.12
 For more info http://www.codenterprise.com/.
 
+Features:
+1. Counting total orders per registered customer
+2. Searching by name and email 
+3. Sorting on order count
+4. Colors codes 
+
+Future Updates:
+1. Multilingual support
+2. Pagination
+3. Discount offers to loyal customer
+4. Email template 
+5. Sorting based on customer’s ID
+
+
 
 == Installation ==
 1. Upload (Woocommerce - Loyal customer)folder to the `/wp-content/plugins/`
@@ -33,7 +47,7 @@ Email template
 Sorting based on customer’s ID
 
 == Screenshots ==
-http://www.codenterprise.com/wp-content/uploads/2014/07/WLC-Backend.jpg
+1. This is how plugin looks at back-end
 
 == Changelog ==
 no change log (first release)
