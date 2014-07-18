@@ -14,13 +14,15 @@ Woo Commerce Loyal Customer provides wp-admin a way to view the total number of 
 Tested on Word Press 3.9.1 with Woocommerce 2.1.12
 For more info http://www.codenterprise.com/.
 
-Features:
+=Features:=
+Ordererd List:
 1. Counting total orders per registered customer
 2. Searching by name and email 
 3. Sorting on order count
 4. Colors codes 
 
-Future Updates:
+=Future Updates:=
+Ordererd List:
 1. Multilingual support
 2. Pagination
 3. Discount offers to loyal customer
