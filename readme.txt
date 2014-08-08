@@ -10,7 +10,7 @@ License: GPLv2
 WLC provides a way to view the total number of orders received per registered customer in a very user friendly manner with the help of color codes
 
 == Description ==
-Woo Commerce Loyal Customer provides wp-admin a way to view the total number of orders received per registered customer in a very user friendly manner with the help of color codes. It also gives a functionality to search registered customers by name and email. Beside this, wp-admin can also sort the order count by ascending and descending order. Please note that if a registered customer posted a single order, which has status of failed or in process, It will be not be accounted in our plugin. In short, order count will work fine in case of those registered customers who have posted one successful order in the past.  
+Woo Commerce Loyal Customer provides wp-admin a way to view the total number of orders received per registered customer in a very user friendly manner with the help of color codes. It also gives a functionality to search registered customers by name and email. Beside this, wp-admin can also sort the order count by ascending and descending order. Please note that if a registered customer posted a single order, which has status of failed or in process, It will not be accounted in our plugin. In short, order count will work fine in case of those registered customers who have posted one successful order in the past.  
 
 For more info http://www.codenterprise.com/corporate-profile/wordpress-plugins/
 
