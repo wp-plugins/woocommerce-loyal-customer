@@ -1,7 +1,7 @@
 === Woocommerce Loyal Customer ===
 Contributors: http://www.codenterprise.com/
 Donate link: http://www.codenterprise.com/
-Tags: Woo-commerce, wordpress, commerce, e-commerce, ecommerce, wordpress ecommerce, order, Woocommerce order, order count, order sum, total order, filter order, number of order, add column to order gird 
+Tags: Woo-commerce, wordpress, commerce, e-commerce, ecommerce, wordpress ecommerce, order, Woocommerce order, order count, order sum, total order, filter order, number of order, add column to order gird
 Requires at least: 3.0.1
 Tested up to: 3.9.1
 Stable tag: 1.0
