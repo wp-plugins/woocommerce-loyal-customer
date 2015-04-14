@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: WooCommerce - Loyal Customer
+ * Plugin Name: WooCommerce Loyal Customer
  * Plugin URI: http://www.codenterprise.com/corporate-profile/wordpress-plugin/
  * Description: Woo Commerce Loyal Customer provides wp-admin a way to view the total number of orders received per registered customer in a very user friendly manner with the help of color codes.
- * Version: 1.0
+ * Version: 1.1
  * Author: Code Enterprise
  * Author URI: http://www.codenterprise.com/
  * License: GPL2

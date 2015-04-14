@@ -43,10 +43,42 @@ if(isset($_POST['code_sort_by'])){
             </tr>
 		</thead>
 		
+        
+        
+        
+        
+ <?php        
+function woocommerce_version_check(  ) {
+	
+  // If get_plugins() isn't available, require it
+	if ( ! function_exists( 'get_plugins' ) )
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	
+        // Create the plugins folder and file variables
+	$plugin_folder = get_plugins( '/' . 'woocommerce' );
+	$plugin_file = 'woocommerce.php';
+	
+	// If the plugin version number is set, return it 
+	if ( isset( $plugin_folder[$plugin_file]['Version'] ) ) {
+		return $plugin_folder[$plugin_file]['Version'];
+
+	} else {
+	// Otherwise return null
+		return NULL;
+	}
+}
+
+ ?>       
+ 
+        
+        
 		<?php 
-		function fused_get_all_user_orders($user_id){
+		
+        
+        function fused_get_all_user_orders($user_id){
 			if(!$user_id)return false;
 			
+			if( woocommerce_version_check() < 2.3 ) {
 			$user_order = query_posts(
 				array(
 					'post_type'   => 'shop_order', 
@@ -65,8 +97,29 @@ if(isset($_POST['code_sort_by'])){
 			}
 			/* return counted array */
 			return $c;
+			}
+			
+			else{
+				$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','meta_value'  => $user_id,'posts_per_page' => -1);
+				global $post;
+				$user_order= get_posts( $arguments ); 
+			$c = 0;
+			foreach ($user_order as $customer_order) {
+				
+				
+				$order = new WC_Order();
+				$order->populate($customer_order);
+				
+				$orderdata = (array) $order;
+				
+				if( $orderdata['post_status'] == 'wc-completed' ){$c++;}
+			}
+			return $c;
+			}
+			
 		}
 		
+		if( woocommerce_version_check() >= '2.3' ) {
 		$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','posts_per_page' => -1,);
 		$orders = new WP_Query($arguments);
 		
@@ -98,6 +151,48 @@ if(isset($_POST['code_sort_by'])){
 					$users_count[$ids[$i]]['useremail'] = $user_info->billing_email;
 				}
 			}
+    }
+    else{
+        /*************************************************************************************************************************/
+		
+		
+		$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','posts_per_page' => -1);
+		global $post;
+	$posts_array = get_posts( $arguments ); 
+
+		if($posts_array){
+	
+			error_reporting(0);
+			$ids = array(); 
+			
+			foreach( $posts_array as $post ) {
+				
+				 setup_postdata($post);
+				 $order_id =  $post->ID;
+				$order = new WC_Order($order_id);
+				 $users_id=$order->get_user_id(); 
+				$ids[] = $users_id ;
+				
+			}
+			wp_reset_postdata();
+			$ids = array_unique($ids) ;
+			$ids = array_values(array_filter($ids));
+			
+			$users_count = array();
+			for($i=0 ; $i<count($ids) ; $i++ ){
+				$total = fused_get_all_user_orders($ids[$i]);
+				
+				if($total > 0){
+					$user_info = get_userdata( $ids[$i] );
+					$users_count[$ids[$i]]['id'] = $ids[$i];
+					$users_count[$ids[$i]]['count'] = $total;
+					$users_count[$ids[$i]]['username'] = $user_info->first_name." ".$user_info->last_name;
+					$users_count[$ids[$i]]['useremail'] = $user_info->billing_email;
+				}
+        }
+        
+        }
+	}
 			/////////////// sorting function ///////////////////////////////////////////
 			function array_orderby(){
 				$args = func_get_args();
