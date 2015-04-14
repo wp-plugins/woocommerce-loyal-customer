@@ -7,7 +7,7 @@ Tested up to: 4.1
 Stable tag: 1.1
 License: GPLv2
 
-WLC provides a way to view the total number of orders received per registered customer in a very user friendly manner with the help of color codes.
+View your most loyal customers with order history.
 
 == Description ==
 Woo Commerce Loyal Customer provides wp-admin a way to view the total number of orders received per registered customer in a very user friendly manner with the help of color codes. It also gives a functionality to search registered customers by name and email. Beside this, wp-admin can also sort the order count by ascending and descending order. Please note that if a registered customer posted a single order, which has status of failed or in process, It will not be accounted in our plugin. In short, order count will work fine in case of those registered customers who have posted one successful order in the past.  
@@ -53,8 +53,11 @@ Sorting based on customer’s ID
 1. This is how plugin looks at back-end
 
 == Changelog ==
-= 1.1 = Updated to work with WooCommerce 2.3.7 and Wordpress 4.1
 
+= 1.1 = 
+* Updated to work with WooCommerce 2.3.7 and Wordpress 4.1
+
+= 1.0 =
 * Initial release
 
 == Frequently Asked Questions ==
