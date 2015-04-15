@@ -14,6 +14,7 @@ Woo Commerce Loyal Customer provides wp-admin a way to view the total number of 
 
 For more info http://www.codenterprise.com/corporate-profile/wordpress-plugins/
 Other WooCommerce Plugins at http://www.codenterprise.com/our-services/woocommerce-web-development/
+Send your problems to info@codenterprise.com. Dont forget to mention WP and WooCommerce versions.
 
 *Features:*
 
@@ -62,3 +63,7 @@ Sorting based on customer’s ID
 
 == Frequently Asked Questions ==
 no question
+
+== Support ==
+
+Visit http://www.codenterprise.com/ for details and enquiries about WLC.
