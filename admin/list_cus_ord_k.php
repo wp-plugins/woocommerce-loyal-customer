@@ -1,5 +1,6 @@
 <?php
 /* sorting by post */
+//ini_set('memory_limit', '-1');
 if(isset($_POST['code_sort_by'])){
 	$sort_by = $_POST['code_sort_by'];
 }
@@ -60,7 +61,7 @@ function woocommerce_version_check(  ) {
 	
 	// If the plugin version number is set, return it 
 	if ( isset( $plugin_folder[$plugin_file]['Version'] ) ) {
-		return $plugin_folder[$plugin_file]['Version'];
+		return (float) $plugin_folder[$plugin_file]['Version'];
 
 	} else {
 	// Otherwise return null
@@ -70,24 +71,28 @@ function woocommerce_version_check(  ) {
 
  ?>       
  
-        
+   
         
 		<?php 
 		
-        
+    
         function fused_get_all_user_orders($user_id){
 			if(!$user_id)return false;
 			
-			if( woocommerce_version_check() < 2.3 ) {
+			if( woocommerce_version_check() < 2.2 ) {
+					
+				
+				
 			$user_order = query_posts(
 				array(
 					'post_type'   => 'shop_order', 
 					'meta_key'    => '_customer_user', 
 					'meta_value'  => $user_id,
-					'posts_per_page' => -1
+					'posts_per_page' => -1,
+					'order' => 'DESC'
 				)
 			);
-			/* getting each order of single user..... where order status = completed */
+			 //getting each order of single user..... where order status = completed 
 			$c = 0;
 			foreach ($user_order as $customer_order) {
 				$order = new WC_Order();
@@ -95,12 +100,15 @@ function woocommerce_version_check(  ) {
 				$orderdata = (array) $order;
 				if( $orderdata['status'] == 'completed' ){$c++;}
 			}
-			/* return counted array */
+			 //return counted array 
 			return $c;
 			}
+			else
 			
-			else{
-				$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','meta_value'  => $user_id,'posts_per_page' => -1);
+			{
+				
+				
+				$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','meta_value'  => $user_id,'posts_per_page' => -1,'order' => 'DESC');
 				global $post;
 				$user_order= get_posts( $arguments ); 
 			$c = 0;
@@ -119,9 +127,15 @@ function woocommerce_version_check(  ) {
 			
 		}
 		
-		if( woocommerce_version_check() >= '2.3' ) {
-		$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','posts_per_page' => -1,);
+		if( woocommerce_version_check() < 2.2 ) {
+			
+			
+			
+			
+		$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','posts_per_page' => -1,'order' => 'DESC');
 		$orders = new WP_Query($arguments);
+		
+		
 		
 		if($orders->have_posts()){
 		
@@ -132,7 +146,7 @@ function woocommerce_version_check(  ) {
 				$orders->the_post();
 				$order_id = get_the_ID();
 				$order = new WC_Order($order_id);
-			 
+			 print_r($order);
 				$users_id=$order->user_id; 
 				$ids[] = $users_id ;
 			}
@@ -152,11 +166,18 @@ function woocommerce_version_check(  ) {
 				}
 			}
     }
-    else{
+		}
+		else
+    	{
+			
+			
+		
+			
+			
         /*************************************************************************************************************************/
 		
 		
-		$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','posts_per_page' => -1);
+		$arguments = array('post_type' => 'shop_order','meta_key' => '_customer_user','posts_per_page' => -1,'order' => 'DESC');
 		global $post;
 	$posts_array = get_posts( $arguments ); 
 
@@ -194,7 +215,7 @@ function woocommerce_version_check(  ) {
         }
 	}
 			/////////////// sorting function ///////////////////////////////////////////
-			function array_orderby(){
+		function array_orderby(){
 				$args = func_get_args();
 				$data = array_shift($args);
 				foreach ($args as $n => $field) {
@@ -211,14 +232,14 @@ function woocommerce_version_check(  ) {
 			}
 			
 			/////////////// calling sorting function ///////////////////////////////////////////
-			if($sort_by == 'acs'){
+		if($sort_by == 'acs'){
 				$users_count = array_orderby($users_count, 'count', SORT_ASC, 'id', SORT_ASC);
 			}else{
 				$users_count = array_orderby($users_count, 'count', SORT_DESC, 'id', SORT_ASC);
 			}
 			
 			//////////////////  displying sorted array  ///////////////
-			foreach( $users_count as $user_count){
+		foreach( $users_count as $user_count){
 				if(isset($_POST['search_cus_ord_b'])){
 					$pos_code = strpos(trim($user_count['username']), trim($_POST['search_cus_ord']));
 					$pos1_code = strpos(trim($user_count['useremail']), trim($_POST['search_cus_ord']));
@@ -231,16 +252,16 @@ function woocommerce_version_check(  ) {
 					<td><?php echo $user_count['useremail']; ?></td>
 					<td><?php echo $user_count['count']; ?></td>
 					<td><?php if($user_count['count']==1){echo "<div style='background:grey;width:20px;height:20px; border-radius: 1em;'></div>";} 
-						else if($user_count['count']>=2 && $total<=4){echo "<div style='background:orange;width:20px;height:20px; border-radius: 1em;'></div>";}
-						else if($user_count['count']>=5 && $total<=8){echo "<div style='background:yellow;width:20px;height:20px; border-radius: 1em;'></div>";}
-						else if($user_count['count']>=9 && $total<=12){echo "<div style='background:green;width:20px;height:20px; border-radius: 1em;'></div>";}
+						else if($user_count['count']>=2 && $user_count['count']<=4){echo "<div style='background:orange;width:20px;height:20px; border-radius: 1em;'></div>";}
+						else if($user_count['count']>=5 && $user_count['count']<=8){ echo "<div style='background:yellow;width:20px;height:20px; border-radius: 1em;'></div>";}
+						else if($user_count['count']>=9 && $user_count['count']<=12){echo "<div style='background:green;width:20px;height:20px; border-radius: 1em;'></div>";}
 						else if($user_count['count']>=13){echo "<div style='background:blue;width:20px;height:20px; border-radius: 1em;'></div>";}?>
 					</td>
 						 
 				</tr>
 				<?php 
 			}
-		}?>
+		?>
 	</table>
 </div>
 <?php
