@@ -58,7 +58,7 @@ Sorting based on customer’s ID
 == Changelog ==
 
 = 1.2 =
-* Added more versions for compatibility. Color codes updated.
+* Fixed Asc/Desc bug. Color codes updated. Added more versions for compatibility.
 
 = 1.1 = 
 * Updated to work with WooCommerce 2.3.7 and Wordpress 4.1
