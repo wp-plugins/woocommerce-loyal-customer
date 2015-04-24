@@ -22,17 +22,15 @@ Send your problems to info@codenterprise.com. Dont forget to mention WP and WooC
 
 1. Counting total orders per registered customer
 2. Searching by name and email 
-3. Sorting on order count
+3. Sorting on order count and client id
 4. Color codes 
+5. Pagination
 
 *Future Updates:*
 
 1. Multilingual support
-2. Pagination
-3. Discount offers to loyal customer
-4. Email template 
-5. Sorting based on customer ID
-
+2. Discount offers to loyal customer
+3. Email template
 
 
 == Installation ==
@@ -50,7 +48,6 @@ Multilingual support
 Pagination
 Discount offers to loyal customer
 Email template 
-Sorting based on customer’s ID
 
 == Screenshots ==
 1. This is how plugin looks at back-end
@@ -58,7 +55,7 @@ Sorting based on customer’s ID
 == Changelog ==
 
 = 1.2.1 =
-* Sorting by Client ID added.
+* Sorting by Client ID added. Pagination.
 
 = 1.2 =
 * Fixed Asc/Desc bug. Color codes updated. Added more versions for compatibility.
