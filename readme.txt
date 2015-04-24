@@ -4,7 +4,7 @@ Donate link: http://www.codenterprise.com/
 Tags: Woo-commerce, wordpress, commerce, e-commerce, ecommerce, wordpress ecommerce, order, Woocommerce order, order count, order sum, total order, filter order, number of order, add column to order gird
 Requires at least: 3.9.1
 Tested up to: 4.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2
 
 View your most loyal customers with order history.
@@ -40,10 +40,10 @@ Send your problems to info@codenterprise.com. Dont forget to mention WP and WooC
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Features ==
-Counting total orders per registered customer
-Searching by name and email 
-Sorting on order count
-Colors codes 
+* Counting total orders per registered customer
+* Searching by Name and Email 
+* Sorting on Order Count, Client ID
+* Colors Codes 
 
 == Upgrade Notice ==
 Multilingual support
@@ -56,6 +56,9 @@ Sorting based on customer’s ID
 1. This is how plugin looks at back-end
 
 == Changelog ==
+
+= 1.2.1 =
+* Sorting by Client ID added.
 
 = 1.2 =
 * Fixed Asc/Desc bug. Color codes updated. Added more versions for compatibility.
