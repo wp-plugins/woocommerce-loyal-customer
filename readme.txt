@@ -1,10 +1,10 @@
 === Woocommerce Loyal Customer ===
 Contributors: codenterprise
-Donate link: http://www.codenterprise.com/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EUNNQUBB23JZ6
 Tags: Woo-commerce, wordpress, commerce, e-commerce, ecommerce, wordpress ecommerce, order, Woocommerce order, order count, order sum, total order, filter order, number of order, add column to order gird
 Requires at least: 3.9.1
 Tested up to: 4.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2
 
 View your most loyal customers with order history.
@@ -42,10 +42,10 @@ Send your problems to info@codenterprise.com. Dont forget to mention WP and WooC
 * Searching by Name and Email 
 * Sorting on Order Count, Client ID
 * Colors Codes 
+* Pagination
 
 == Upgrade Notice ==
 Multilingual support
-Pagination
 Discount offers to loyal customer
 Email template 
 
@@ -53,6 +53,8 @@ Email template
 1. This is how plugin looks at back-end
 
 == Changelog ==
+= 1.2.2 =
+* Increased memory limit for larger websites.
 
 = 1.2.1 =
 * Sorting by Client ID added. Pagination.
