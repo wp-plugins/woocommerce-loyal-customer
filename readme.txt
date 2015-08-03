@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Woo-commerce, wordpress, commerce, e-commerce, ecommerce, wordpress ecommerce, order, Woocommerce order, order count, order sum, total order, filter order, number of order, add column to order gird
 Requires at least: 3.9.1
 Tested up to: 4.1
-Stable tag: 1.2.2
+Stable tag: 1.3.1
 License: GPLv2
 
 View your most loyal customers with order history.
@@ -53,6 +53,9 @@ Email template
 1. This is how plugin looks at back-end
 
 == Changelog ==
+= 1.3.1 =
+* Added WP error reporting
+
 = 1.2.2 =
 * Increased memory limit for larger websites.
 
